@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Human Body Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .fact-display {
+            margin-top: 20px;
+            font-size: 18px;
+            transition: opacity 0.5s ease;
+            opacity: 0;
+        }
+
+        .fact-display.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="factButton">Show Random Fact</button>
+        <div id="factDisplay" class="fact-display">Click the button to see a fact!</div>
+    </div>
+    <script>
+        const facts = [
+            "The human brain contains approximately 86 billion neurons.",
+            "The human body is made up of around 60% water.",
+            "The average adult human has 206 bones.",
+            "The heart beats about 100,000 times a day.",
+            "The skin is the largest organ of the human body.",
+            "Humans have 46 chromosomes in each cell.",
+            "The small intestine is about 20 feet long.",
+            "The human eye can distinguish about 10 million different colors.",
+            "The liver is the only organ that can regenerate itself.",
+            "Humans shed about 600,000 particles of skin every hour."
+        ];
+
+        document.getElementById('factButton').addEventListener('click', function() {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            const factDisplay = document.getElementById('factDisplay');
+            factDisplay.classList.remove('show');
+            setTimeout(() => {
+                factDisplay.textContent = facts[randomIndex];
+                factDisplay.classList.add('show');
+            }, 500);
+        });
+    </script>
+</body>
+</html>
